@@ -6,8 +6,8 @@ function App() {
   return (
     <Router> {/* Router wrapper */}
       <Routes> {/* Route definitions */}
-        <Route path="/" element={<Home />} />   {/* Home route */}
-        <Route path="/login" element={<Login />} /> {/* Login route */}
+        <Route path="/" element={<home />} />   {/* Home route */}
+        <Route path="/login" element={<login />} /> {/* Login route */}
       </Routes>
     </Router>
   );
