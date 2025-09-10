@@ -42,11 +42,3 @@
     "gh-pages": "^6.3.0"
   }
 }
-
-{
-  "homepage": "https://Mshiv0001.github.io/Login-Signup-page",
-  "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
-  }
-}
