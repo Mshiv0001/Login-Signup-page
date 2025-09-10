@@ -1,16 +1,16 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom"; // router imports
-import home from "./home";   // Home component
-import login from "./login"; // Login component
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"; 
+import Home from "./home";   // Home component
+import Login from "./login"; // Login component
 
 function App() {
   return (
-    <Router> {/* Router wrapper */}
-      <Routes> {/* Route definitions */}
-        <Route path="/" element={<home />} />   {/* Home route */}
-        <Route path="/login" element={<login />} /> {/* Login route */}
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />   {/* Home route */}
+        <Route path="/login" element={<Login />} /> {/* Login route */}
       </Routes>
     </Router>
   );
 }
 
-export default App; // export main App
+export default App;
