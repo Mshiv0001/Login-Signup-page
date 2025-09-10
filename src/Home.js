@@ -1,48 +1,57 @@
-import { useEffect, useState } from "react";
-import { homeAnimations } from "./animations/HomeAnimations";
-import Login from "./Login"; // import your login component
-import "./Home.css";
+import { useEffect, useState } from "react"; // React hooks: useState = manage state, useEffect = run side effects
+import { homeAnimations } from "./animations/HomeAnimations"; // Import GSAP animation function for homepage
+import Login from "./login"; // Import Login modal component
+import SignUp from "./signup"; // Import SignUp modal component
+import "./home.css"; // Import CSS styles for this component
 
 export default function Home() {
-  const [showLogin, setShowLogin] = useState(false);
+  const [showLogin, setShowLogin] = useState(false); // State: controls if Login modal is visible
+  const [showSignUp, setShowSignUp] = useState(false); // State: controls if SignUp modal is visible
 
   useEffect(() => {
-    homeAnimations(); // run GSAP animations when page loads
+    homeAnimations(); // Run entrance animations (letters, clouds, etc.) once on mount
   }, []);
 
   return (
-    <div className="home-container">
-      <div className="home-content">
+    <div className="home-container"> {/* Main container wrapping homepage */}
+
+      <img src="/cloud.png" alt="cloud" className="clouds" /> {/* Cloud image for background */}
+      <img src="/cloud.png" alt="cloud" className="clouds cloud2" /> {/* Second cloud image */}
+
+      <div className="home-content"> {/* Content block containing title, subtitle, and buttons */}
+
         <h1 className="home-title">
-          {"Attendance Tracker ".split("").map((letter, index) => (
+          {/* Split "Attendance Tracker" into letters so each can be animated separately */}
+          {"Attendance Tracker".split("").map((letter, index) => (
             <span key={index} className={`letter letter-${index}`}>
-              {letter === " " ? "\u00A0" : letter} {/* keep spaces */}
+              {letter === " " ? "\u00A0" : letter} {/* Replace spaces with non-breaking space */}
             </span>
           ))}
         </h1>
 
         <p className="home-subtitle">
-          For teachers, students and employees — manage your personal attendance easily.
+          For teachers, students and employees — manage your personal attendance easily. {/* Subtitle text */}
         </p>
 
-        <div className="home-buttons">
+        <div className="home-buttons"> {/* Buttons container */}
           <button
             className="home-btn login-btn"
-            onClick={() => setShowLogin(true)} // open modal
+            onClick={() => setShowLogin(true)} // Show Login modal when clicked
           >
-            Login  
+            Login
           </button>
+
           <button
             className="home-btn signup-btn"
-            onClick={() => alert("Sign Up clicked!")} // keep as example
+            onClick={() => setShowSignUp(true)} // Show SignUp modal when clicked
           >
             Sign Up
           </button>
         </div>
       </div>
 
-      {/* Render login modal only when showLogin is true */}
-      {showLogin && <Login onClose={() => setShowLogin(false)} />}
+      {showLogin && <Login onClose={() => setShowLogin(false)} />} {/* Conditionally render Login modal */}
+      {showSignUp && <SignUp onClose={() => setShowSignUp(false)} />} {/* Conditionally render SignUp modal */}
     </div>
   );
 }

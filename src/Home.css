@@ -1,126 +1,106 @@
-/* Container with slow multi-directional live gradient */
 .home-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  min-height: 100vh;
-  width: 100%;
-  color: white;
-  text-align: center;
-  overflow: visible;
-
-  /* Live gradient */
-  background: linear-gradient(270deg, #4b12d1, #381191, #2f0e61, #010003);
-  background-size: 400% 400%;   /* smaller size makes movement more noticeable */
-  animation: gradientShift 7s ease-in-out infinite; /* slower, smooth */
+  display: flex; /* Flexbox layout */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  flex-direction: column; /* Stack items vertically */
+  min-height: 100vh; /* Take full screen height */
+  width: 100%; /* Take full width */
+  color: white; /* Default text color */
+  text-align: center; /* Center-align text */
+  position: relative; /* Allows clouds (absolute) to position inside */
+  overflow: hidden; /* Hide overflowing clouds */
+  background: linear-gradient(to top, #87ceeb, #1e90ff); /* Blue sky gradient */
 }
 
-/* Gradient animation: multi-directional */
-@keyframes gradientShift {
-  0% {
-    background-position: 0% 0%;
-  }
-  25% {
-    background-position: 75% 75%;
-  }
-  50% {
-    background-position: 50% 25%;
-  }
-  75% {
-    background-position: 25% 25%;
-  }
-  100% {
-    background-position: 0% 0%;
-  }
+/* Clouds layer */
+.clouds {
+  position: absolute; /* Floats over text */
+  top: -5%; /* Vertical placement of clouds */
+  left: -600px; /* Start clouds offscreen to the left */
+  width: 500px; 
+  background-image:"cloud.png" ;
+  animation: moveCloud 40s linear infinite; /* clouds moving animation */
+  pointer-events: none; /* clouds don’t block clicks */
 }
 
+/* Second cloud (appears later) */
+.cloud2 {
+  top: 50%; /* Different vertical position */
+  animation-delay: 10s; /* Starts drifting later */
+  background-image:"cloud.png" ;
+}
+
+/* Cloud movement animation */
+@keyframes moveCloud {
+  0%   { transform: translateX(0); } /* Start at original X */
+  100% { transform: translateX(150vw); } /* Move far across screen */
+}
 
 /* Content wrapper */
 .home-content {
-  max-width: 100%;
-  padding: 10px;
-  padding-top: 5px ;
+  max-width: 100%; /* Prevents overflow */
+  padding: 10px; /* General spacing */
+  padding-top: 5px; /* Slightly less padding on top */
 }
 
 /* Title */
 .home-title {
-  font-size: 180px;          /* responsive size instead of fixed px */
-  letter-spacing: -10px;     /* reduce spacing in vw units for responsiveness */
-  display: flex;
-  flex-wrap: nowrap;        /* prevent line break */
-  justify-content: center;
-  white-space: nowrap;      /* force text to stay in one line */
+  font-size: 180px; /* Huge text size */
+  letter-spacing: -10px; /* Negative spacing for tight letters */
+  display: flex; /* Treat as flex container */
+  flex-wrap: nowrap; /* Prevent text from wrapping */
+  justify-content: center; /* Center horizontally */
+  white-space: nowrap; /* Force text in one line */
 }
 
-
-/* Each letter */
 .letter {
-  display: inline-block;      /* needed for transforms and glow */
-  transition: all 0.3s ease;  /* smooth hover effects */
-  color: white;               /* default color */
-  cursor: default;            /* optional */
+  display: inline-block; /* Needed for animation effects */
+  transition: transform 0.3s ease, text-shadow 0.3s ease, color 0.3s ease; /* Smooth animations */
+  cursor: pointer; /* Pointer cursor on hover */
 }
 
-/* Hover glow on letters */
 .letter:hover {
-  color: #ffffff;             /* glow color */
-  text-shadow:
-    0 0 5px #931abc,
-    0 0 10px #931abc,
-    0 0 20px #931abc,
-    0 0 30px #931abc;
-  transform: scale(1.5);      /* pop effect */
+  color: #ffcc00; /* Change color when hovered */
+  text-shadow: /* Glow effect when hovered */
+    0 0 5px #000000,
+    0 0 10px #d5eef2,
+    0 0 20px #99e6f4,
+    0 0 30px #64e8fc;
+  transform: scale(1.5); /* Grow bigger */
 }
 
 /* Subtitle */
 .home-subtitle {
-  font-size: 30px;
-  margin-bottom: 30px;
-  font-family: 'Open Sans', sans-serif; /* optional Google font */
+  font-size: 30px; /* Subtitle text size */
+  margin-bottom: 30px; /* Space below */
+  font-family: 'Open Sans', sans-serif; /* Optional Google font */
 }
 
 /* Buttons container */
 .home-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
+  display: flex; /* Arrange buttons in a row */
+  justify-content: center; /* Center them */
+  gap: 20px; /* Space between buttons */
 }
 
-/* Buttons */
+/* Buttons (shared styles) */
 .home-btn {
-  padding: 14px 28px;
-  font-size: 1rem;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: 0.3s;
-  
+  padding: 14px 28px; /* Button size */
+  font-size: 1rem; /* Font size */
+  border: none; /* Remove default border */
+  border-radius: 8px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor */
+  transition: 0.3s; /* Smooth hover animations */
 }
 
 /* Login button */
 .login-btn {
-  background-color: white;
-  color: #49139f;
-  font-weight: bold;
-
-}
-
-.login-btn:hover {
-  background-color: #ffffff;
-  opacity: 25%;
-  transform: scale(1.5);
+  background-color: white; /* White background */
+  font-weight: bold; /* Bold text */
 }
 
 /* Signup button */
 .signup-btn {
-  background-color: #ffcc00;
-  color: black;
-  font-weight: bold;
-}
-
-.signup-btn:hover {
-  background-color: #ffffff;
-  opacity: 25%;
-  transform: scale(1.5);
+  background-color: #ffcc00; /* Yellow background */
+  font-weight: bold; /* Bold text */
 }
