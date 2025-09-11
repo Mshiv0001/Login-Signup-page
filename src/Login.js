@@ -1,5 +1,5 @@
 import { useState } from "react"; // useState = to manage input values
-import "./login.css"; // Import styles for the login modal
+import "./Login.css"; // Import styles for the login modal
 
 export default function Login({ onClose }) { // Functional component, receives onClose prop to close modal
   const [user, setUser] = useState(""); // State: stores email or mobile input

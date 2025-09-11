@@ -1,5 +1,5 @@
 import { useState } from "react"; // useState = to manage form inputs
-import "./login.css"; // Reuse the same styles as Login (modal look)
+import "./Login.css"; // Reuse the same styles as Login (modal look)
 
 export default function SignUp({ onClose }) { // Functional component with onClose prop
     const [name, setName] = useState(""); // State: full name

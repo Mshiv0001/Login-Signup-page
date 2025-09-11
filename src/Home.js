@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"; 
 import { homeAnimations } from "./animations/HomeAnimations"; 
-import Login from "./login"; 
-import SignUp from "./signup"; 
-import "./home.css"; 
+import Login from "./Login"; 
+import SignUp from "./Signup"; 
+import "./Home.css"; 
 
 export default function Home() {   // ✅ Capital H
   const [showLogin, setShowLogin] = useState(false);
