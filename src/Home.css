@@ -1,106 +1,82 @@
 .home-container {
-  display: flex; /* Flexbox layout */
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
-  flex-direction: column; /* Stack items vertically */
-  min-height: 100vh; /* Take full screen height */
-  width: 100%; /* Take full width */
-  color: white; /* Default text color */
-  text-align: center; /* Center-align text */
-  position: relative; /* Allows clouds (absolute) to position inside */
-  overflow: hidden; /* Hide overflowing clouds */
-  background: linear-gradient(to top, #87ceeb, #1e90ff); /* Blue sky gradient */
-}
-
-/* Clouds layer */
-.clouds {
-  position: absolute; /* Floats over text */
-  top: -5%; /* Vertical placement of clouds */
-  left: -600px; /* Start clouds offscreen to the left */
-  width: 500px; 
-  background-image:"cloud.png" ;
-  animation: moveCloud 40s linear infinite; /* clouds moving animation */
-  pointer-events: none; /* clouds don’t block clicks */
-}
-
-/* Second cloud (appears later) */
-.cloud2 {
-  top: 50%; /* Different vertical position */
-  animation-delay: 10s; /* Starts drifting later */
-  background-image:"cloud.png" ;
-}
-
-/* Cloud movement animation */
-@keyframes moveCloud {
-  0%   { transform: translateX(0); } /* Start at original X */
-  100% { transform: translateX(150vw); } /* Move far across screen */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+  color: white;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(to top, #87ceeb, #1e90ff);
 }
 
 /* Content wrapper */
 .home-content {
-  max-width: 100%; /* Prevents overflow */
-  padding: 10px; /* General spacing */
-  padding-top: 5px; /* Slightly less padding on top */
+  max-width: 100%;
+  padding: 10px;
+  padding-top: 5px;
 }
 
 /* Title */
 .home-title {
-  font-size: 180px; /* Huge text size */
-  letter-spacing: -10px; /* Negative spacing for tight letters */
-  display: flex; /* Treat as flex container */
-  flex-wrap: nowrap; /* Prevent text from wrapping */
-  justify-content: center; /* Center horizontally */
-  white-space: nowrap; /* Force text in one line */
+  font-size: 180px;
+  letter-spacing: -10px;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  white-space: nowrap;
 }
 
 .letter {
-  display: inline-block; /* Needed for animation effects */
-  transition: transform 0.3s ease, text-shadow 0.3s ease, color 0.3s ease; /* Smooth animations */
-  cursor: pointer; /* Pointer cursor on hover */
+  display: inline-block;
+  transition: transform 0.3s ease, text-shadow 0.3s ease, color 0.3s ease;
+  cursor: pointer;
 }
 
 .letter:hover {
-  color: #ffcc00; /* Change color when hovered */
-  text-shadow: /* Glow effect when hovered */
+  color: #ffcc00;
+  text-shadow:
     0 0 5px #000000,
     0 0 10px #d5eef2,
     0 0 20px #99e6f4,
     0 0 30px #64e8fc;
-  transform: scale(1.5); /* Grow bigger */
+  transform: scale(1.5);
 }
 
 /* Subtitle */
 .home-subtitle {
-  font-size: 30px; /* Subtitle text size */
-  margin-bottom: 30px; /* Space below */
-  font-family: 'Open Sans', sans-serif; /* Optional Google font */
+  font-size: 30px;
+  margin-bottom: 30px;
+  font-family: 'Open Sans', sans-serif;
 }
 
 /* Buttons container */
 .home-buttons {
-  display: flex; /* Arrange buttons in a row */
-  justify-content: center; /* Center them */
-  gap: 20px; /* Space between buttons */
+  display: flex;
+  justify-content: center;
+  gap: 20px;
 }
 
 /* Buttons (shared styles) */
 .home-btn {
-  padding: 14px 28px; /* Button size */
-  font-size: 1rem; /* Font size */
-  border: none; /* Remove default border */
-  border-radius: 8px; /* Rounded corners */
-  cursor: pointer; /* Pointer cursor */
-  transition: 0.3s; /* Smooth hover animations */
+  padding: 14px 28px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
 /* Login button */
 .login-btn {
-  background-color: white; /* White background */
-  font-weight: bold; /* Bold text */
+  background-color: white;
+  font-weight: bold;
 }
 
 /* Signup button */
 .signup-btn {
-  background-color: #ffcc00; /* Yellow background */
-  font-weight: bold; /* Bold text */
+  background-color: #ffcc00;
+  font-weight: bold;
 }

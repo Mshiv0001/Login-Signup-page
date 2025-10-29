@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react"; 
 import { homeAnimations } from "./animations/HomeAnimations"; 
 import Login from "./Login"; 
-import SignUp from "./Signup"; 
+import SignUp from "./signup"; 
 import "./Home.css"; 
 
-export default function Home() {   // ✅ Capital H
+export default function Home() {  
   const [showLogin, setShowLogin] = useState(false);
   const [showSignUp, setShowSignUp] = useState(false);
 
@@ -14,8 +14,6 @@ export default function Home() {   // ✅ Capital H
 
   return (
     <div className="home-container">
-      <img src="/cloud.png" alt="cloud" className="clouds" />
-      <img src="/cloud.png" alt="cloud" className="clouds cloud2" />
 
       <div className="home-content">
         <h1 className="home-title">

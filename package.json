@@ -43,7 +43,7 @@
   "devDependencies": {
     "gh-pages": "^6.3.0"
   },
-  "homepage": "https://Mshiv0001.github.io/Login-Signup-page",
+  "homepage": ".",
   "engines": {
     "node": "20"
   }
